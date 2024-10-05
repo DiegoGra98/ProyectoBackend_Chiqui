@@ -9,6 +9,6 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.LoginData
 {
     public interface ILoginRepository
     {
-        Task<UsuarioModel> GetLogin(UsuarioModel usuario);
+        Task<UsuarioModel> GetLogin(LoginModel usuario);
     }
 }

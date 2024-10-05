@@ -17,9 +17,33 @@ namespace ProyectoBackend_Chiqui.Controllers
 
         [HttpPost]
         [Route("IniciarSesion")]
-        public async Task<IActionResult> GetLogin([FromBody] UsuarioModel Usuario)
+        public async Task<IActionResult> GetLogin([FromBody] LoginModel login)
         {
+            // Validación del modelo recibido
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Datos inválidos.");
+            }
 
+            try
+            {
+                // Intentar obtener el usuario del repositorio
+                var usuarioEncontrado = await _loginRepository.GetLogin(login);
+
+                if (usuarioEncontrado == null)
+                {
+                    // Si no se encuentra el usuario, devolver una respuesta 404 (no encontrado)
+                    return NotFound("Usuario o contraseña incorrectos.");
+                }
+
+                // Si se encuentra el usuario, devolver una respuesta 200 con los detalles
+                return Ok(usuarioEncontrado);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones generales
+                return StatusCode(500, $"Error en el servidor: {ex.Message}");
+            }
         }
 
     }

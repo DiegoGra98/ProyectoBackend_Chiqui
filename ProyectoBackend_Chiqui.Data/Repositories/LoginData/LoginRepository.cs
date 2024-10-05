@@ -1,4 +1,6 @@
-﻿using ProyectoBackend_Chiqui.Model;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
+using ProyectoBackend_Chiqui.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +9,25 @@ using System.Threading.Tasks;
 
 namespace ProyectoBackend_Chiqui.Data.Repositories.LoginData
 {
-    internal class LoginRepository : ILoginRepository
+    public class LoginRepository : ILoginRepository
     {
-        public Task<UsuarioModel> GetLogin(UsuarioModel usuario)
+        private readonly MySQLConfiguration _connectionString;
+
+        public LoginRepository(MySQLConfiguration connectionString)
         {
-            throw new NotImplementedException();
+            _connectionString = connectionString;
+        }
+        protected MySqlConnection dbConnection()
+        {
+            return new MySqlConnection(_connectionString.ConnectionString);
+        }
+        public async Task<UsuarioModel> GetLogin(LoginModel login)
+        {
+            var db = dbConnection();
+
+            var sql = @"SELECT * FROM Cliente WHERE Correo = @Correo AND Contraseña = @Contraseña";
+
+            return await db.QueryFirstOrDefaultAsync<UsuarioModel>(sql, new { login.Correo, login.Contraseña});
         }
     }
 }

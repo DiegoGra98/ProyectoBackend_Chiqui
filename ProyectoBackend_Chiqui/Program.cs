@@ -1,4 +1,5 @@
 using ProyectoBackend_Chiqui.Data;
+using ProyectoBackend_Chiqui.Data.Repositories.LoginData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ var mySQLConfiguration = new MySQLConfiguration(builder.Configuration.GetConnect
 builder.Services.AddSingleton(mySQLConfiguration);
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 
 var app = builder.Build();
 
