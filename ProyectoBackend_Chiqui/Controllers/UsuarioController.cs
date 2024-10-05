@@ -57,7 +57,7 @@ namespace ProyectoBackend_Chiqui.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _usuarioRepository.InsertUsuario(Usuario);
+            await _usuarioRepository.UpdateUsuario(Usuario);
 
             return NoContent();
         }

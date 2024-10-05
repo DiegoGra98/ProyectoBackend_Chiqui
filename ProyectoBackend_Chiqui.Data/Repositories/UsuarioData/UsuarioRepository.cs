@@ -48,7 +48,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Cliente WHERE id_Empleado = @Id";
+            var sql = @"SELECT * FROM Cliente WHERE id_Cliente = @Id";
 
             return await db.QueryFirstOrDefaultAsync<UsuarioModel>(sql, new {Id = id });
         }
@@ -68,7 +68,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"UPDATE Usuarios 
+            var sql = @"UPDATE Cliente 
             SET    
             Nombre = @Nombre,
             Direccion = @Direccion,
