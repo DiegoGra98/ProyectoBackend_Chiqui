@@ -37,7 +37,7 @@ namespace ProyectoBackend_Chiqui.Controllers
             {
                 return BadRequest();
             }
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -59,7 +59,7 @@ namespace ProyectoBackend_Chiqui.Controllers
             }
             await _usuarioRepository.UpdateUsuario(Usuario);
 
-            return NoContent();
+            return Ok(new { Message = "Usuario actualizado con éxito." });
         }
 
         [HttpDelete]
@@ -68,7 +68,7 @@ namespace ProyectoBackend_Chiqui.Controllers
         {
              await _usuarioRepository.DeleteUsuario(new UsuarioModel {id_Cliente = id});
 
-            return NoContent();
+            return Ok(new { Message = "Usuario eliminado con éxito." });
         }
     }
 }

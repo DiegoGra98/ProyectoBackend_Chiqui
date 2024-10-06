@@ -57,9 +57,9 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"CALL InsertarCliente (@Nombre,@Direccion,@Telefono,@Correo,@Contraseña,@Fecha_Registro,@id_Rol)";
+            var sql = @"CALL InsertarCliente (@Nombre,@Direccion,@Telefono,@Correo,@Contraseña,NOW(),@id_Rol)";
 
-            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.Fecha_Registro, usuario.id_Rol });
+            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.id_Rol });
 
             return result > 0;
         }

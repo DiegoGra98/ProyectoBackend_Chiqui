@@ -14,7 +14,7 @@ namespace ProyectoBackend_Chiqui.Model
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string Contraseña { get; set; }
-        public string Fecha_Registro { get; set; }
+        public string? Fecha_Registro { get; set; }
         public int id_Rol { get; set; }
 
     }
