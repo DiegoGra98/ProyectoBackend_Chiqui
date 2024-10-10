@@ -1,4 +1,5 @@
 using ProyectoBackend_Chiqui.Data;
+using ProyectoBackend_Chiqui.Data.Repositories.EmailData;
 using ProyectoBackend_Chiqui.Data.Repositories.LoginData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
 
@@ -14,8 +15,15 @@ builder.Services.AddSwaggerGen();
 var mySQLConfiguration = new MySQLConfiguration(builder.Configuration.GetConnectionString("MySqlConnection"));
 builder.Services.AddSingleton(mySQLConfiguration);
 
+var emailConfiguration = new EmailConfiguration(builder.Configuration.GetSection("Email:Host").Value, 
+    builder.Configuration.GetSection("Email:Port").Value,
+    builder.Configuration.GetSection("Email:UserName").Value,
+    builder.Configuration.GetSection("Email:Password").Value);
+builder.Services.AddSingleton(emailConfiguration);
+
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 
 var app = builder.Build();
 

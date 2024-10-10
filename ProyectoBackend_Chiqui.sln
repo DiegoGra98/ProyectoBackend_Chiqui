@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoBackend_Chiqui", "ProyectoBackend_Chiqui\ProyectoBackend_Chiqui.csproj", "{682147D7-0ECA-443B-A688-C693191BDC9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoBackend_Chiqui.Data", "ProyectoBackend_Chiqui.Data\ProyectoBackend_Chiqui.Data.csproj", "{BBA54B2D-DFFB-4EEC-9DB3-410383420A15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoBackend_Chiqui.Data", "ProyectoBackend_Chiqui.Data\ProyectoBackend_Chiqui.Data.csproj", "{BBA54B2D-DFFB-4EEC-9DB3-410383420A15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoBackend_Chiqui.Model", "ProyectoBackend_Chiqui.Model\ProyectoBackend_Chiqui.Model.csproj", "{4F15ED76-F105-4A4F-B1DD-19C5486019E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoBackend_Chiqui.Model", "ProyectoBackend_Chiqui.Model\ProyectoBackend_Chiqui.Model.csproj", "{4F15ED76-F105-4A4F-B1DD-19C5486019E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

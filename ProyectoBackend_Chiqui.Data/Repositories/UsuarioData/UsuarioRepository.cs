@@ -75,11 +75,11 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
             Telefono = @Telefono,
             Correo = @Correo,
             Contraseña = @Contraseña,
-            Fecha_Registro = @Fecha_Registro,
+            Fecha_Registro = NOW(),
             id_Rol = @id_Rol
             WHERE id_Cliente = @id_Cliente";
 
-            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.Fecha_Registro, usuario.id_Rol, usuario.id_Cliente });
+            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.id_Rol, usuario.id_Cliente });
 
             return result > 0;
         }

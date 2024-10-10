@@ -32,7 +32,7 @@ namespace ProyectoBackend_Chiqui.Controllers
 
                 if (usuarioEncontrado == null)
                 {
-                    // Si no se encuentra el usuario, devolver una respuesta 404 (no encontrado)
+                    // Si no se encuentra el usuario, devolver una respues ta 404 (no encontrado)
                     return NotFound("Usuario o contraseña incorrectos.");
                 }
 
