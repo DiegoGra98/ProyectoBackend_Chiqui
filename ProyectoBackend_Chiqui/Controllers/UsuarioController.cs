@@ -66,7 +66,7 @@ namespace ProyectoBackend_Chiqui.Controllers
         [Route("Eliminar")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-             await _usuarioRepository.DeleteUsuario(new UsuarioModel {id_Cliente = id});
+             await _usuarioRepository.DeleteUsuario(new UsuarioModel {id_Usuario = id});
 
             return Ok(new { Message = "Usuario eliminado con éxito." });
         }

@@ -8,7 +8,7 @@ namespace ProyectoBackend_Chiqui.Model
 {
     public class UsuarioModel
     {
-        public int id_Cliente { get; set; }
+        public int id_Usuario { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }

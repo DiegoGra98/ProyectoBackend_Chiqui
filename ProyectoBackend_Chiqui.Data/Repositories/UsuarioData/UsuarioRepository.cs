@@ -28,9 +28,9 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"DELETE FROM Cliente WHERE id_Cliente = @Id";
+            var sql = @"DELETE FROM Usuario WHERE id_Cliente = @Id";
 
-            var result = await db.ExecuteAsync(sql, new { Id = usuario.id_Cliente});
+            var result = await db.ExecuteAsync(sql, new { Id = usuario.id_Usuario});
 
             return result > 0;
         }
@@ -39,7 +39,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Cliente";
+            var sql = @"SELECT * FROM Usuario";
 
             return await db.QueryAsync<UsuarioModel>(sql, new { });
         }
@@ -48,7 +48,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Cliente WHERE id_Cliente = @Id";
+            var sql = @"SELECT * FROM Usuario WHERE id_Usuario = @Id";
 
             return await db.QueryFirstOrDefaultAsync<UsuarioModel>(sql, new {Id = id });
         }
@@ -57,7 +57,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"CALL InsertarCliente (@Nombre,@Direccion,@Telefono,@Correo,@Contraseña,NOW(),@id_Rol)";
+            var sql = @"CALL InsertarUsuario (@Nombre,@Direccion,@Telefono,@Correo,@Contraseña,NOW(),@id_Rol)";
 
             var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.id_Rol });
 
@@ -68,7 +68,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"UPDATE Cliente 
+            var sql = @"UPDATE Usuario 
             SET    
             Nombre = @Nombre,
             Direccion = @Direccion,
@@ -77,9 +77,9 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
             Contraseña = @Contraseña,
             Fecha_Registro = NOW(),
             id_Rol = @id_Rol
-            WHERE id_Cliente = @id_Cliente";
+            WHERE id_Usuario = @id_Usuario";
 
-            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.id_Rol, usuario.id_Cliente });
+            var result = await db.ExecuteAsync(sql, new { usuario.Nombre, usuario.Direccion, usuario.Telefono, usuario.Correo, usuario.Contraseña, usuario.id_Rol, usuario.id_Usuario });
 
             return result > 0;
         }
