@@ -26,7 +26,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.RolData
         {
             var db = dbConnection();
 
-            var sql = @"DELETE FROM Rol WHERE id_Rol = @Id";
+            var sql = @"DELETE FROM Roles WHERE id_Rol = @Id";
 
             var result = await db.ExecuteAsync(sql, new { Id = rol.id_Rol });
 
@@ -37,7 +37,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.RolData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Rol";
+            var sql = @"SELECT * FROM Roles";
 
             return await db.QueryAsync<RolModel>(sql, new { });
         }
@@ -46,7 +46,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.RolData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Rol WHERE id_Rol = @Id";
+            var sql = @"SELECT * FROM Roles WHERE id_Rol = @Id";
 
             return await db.QueryFirstOrDefaultAsync<RolModel>(sql, new { Id = id });
         }
@@ -66,9 +66,9 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.RolData
         {
             var db = dbConnection();
 
-            var sql = @"UPDATE Rol 
+            var sql = @"UPDATE Roles 
             SET    
-            Nombre = @Descripcion,
+            Descripcion = @Descripcion
             WHERE id_Rol = @id_Rol";
 
             var result = await db.ExecuteAsync(sql, new { rol.Descripcion, rol.id_Rol });
