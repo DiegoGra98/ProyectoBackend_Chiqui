@@ -1,6 +1,7 @@
 using ProyectoBackend_Chiqui.Data;
 using ProyectoBackend_Chiqui.Data.Repositories.EmailData;
 using ProyectoBackend_Chiqui.Data.Repositories.LoginData;
+using ProyectoBackend_Chiqui.Data.Repositories.RolData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,7 @@ builder.Services.AddSingleton(emailConfiguration);
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
+builder.Services.AddScoped<IRolRepository, RolRepository>();
 
 var app = builder.Build();
 
