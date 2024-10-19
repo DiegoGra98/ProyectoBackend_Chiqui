@@ -9,6 +9,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.EmailData
 {
     public interface IEmailRepository
     {
-        void SendEmail(EmailModel email);
+        void BienvenidaEmail(EmailModel email);
+        void RecContraseña(EmailModel email);
     }
 }

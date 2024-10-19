@@ -58,18 +58,18 @@ namespace ProyectoBackend_Chiqui.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _rolRepository.UpdateRol(rol);
+            var created = await _rolRepository.UpdateRol(rol);
 
-            return Ok(new { Message = "Rol actualizado con éxito." });
+            return Created("created", created);
         }
 
         [HttpDelete]
         [Route("EliminarRol")]
         public async Task<IActionResult> DeleteRol(int id)
         {
-            await _rolRepository.DeleteRol(new RolModel { id_Rol = id });
+            var created = await _rolRepository.DeleteRol(new RolModel { id_Rol = id });
 
-            return Ok(new { Message = "Rol eliminado con éxito." });
+            return Created("created", created);
         }
     }
 }

@@ -17,9 +17,17 @@ namespace ProyectoBackend_Chiqui.Controllers
 
         [HttpPost]
         [Route("CorreoBienvenida")]
-        public IActionResult SendEmail(EmailModel emailModel)
+        public IActionResult BienvenidaEmail(EmailModel emailModel)
         {
-            _emailRepository.SendEmail(emailModel);
+            _emailRepository.BienvenidaEmail(emailModel);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("CorreoRecuperarPass")]
+        public IActionResult ContraRecuEmail(EmailModel emailModel)
+        {
+            _emailRepository.RecContraseña(emailModel);
             return Ok();
         }
     }

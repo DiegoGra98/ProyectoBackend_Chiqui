@@ -58,9 +58,9 @@ namespace ProyectoBackend_Chiqui.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _categoriaRepository.UpdateCategoria(categoria);
+            var created = await _categoriaRepository.UpdateCategoria(categoria);
 
-            return Ok(new { Message = "Categoria actualizada con éxito." });
+            return Created("created", created);
         }
     }
 }

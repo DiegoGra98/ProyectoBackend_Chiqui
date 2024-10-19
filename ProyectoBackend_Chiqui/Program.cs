@@ -2,12 +2,24 @@ using ProyectoBackend_Chiqui.Data;
 using ProyectoBackend_Chiqui.Data.Repositories.CategoriaData;
 using ProyectoBackend_Chiqui.Data.Repositories.EmailData;
 using ProyectoBackend_Chiqui.Data.Repositories.LoginData;
+using ProyectoBackend_Chiqui.Data.Repositories.ProveedorData;
 using ProyectoBackend_Chiqui.Data.Repositories.RolData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,6 +40,7 @@ builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IRolRepository, RolRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 
 var app = builder.Build();
 
@@ -39,6 +52,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Aplicar la política de CORS antes de la autorización
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

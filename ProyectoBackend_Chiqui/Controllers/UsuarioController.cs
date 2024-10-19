@@ -57,18 +57,18 @@ namespace ProyectoBackend_Chiqui.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _usuarioRepository.UpdateUsuario(Usuario);
+            var created = await _usuarioRepository.UpdateUsuario(Usuario);
 
-            return Ok(new { Message = "Usuario actualizado con éxito." });
+            return Created("created", created);
         }
 
         [HttpDelete]
         [Route("Eliminar")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-             await _usuarioRepository.DeleteUsuario(new UsuarioModel {id_Usuario = id});
+            var created =  await _usuarioRepository.DeleteUsuario(new UsuarioModel {id_Usuario = id});
 
-            return Ok(new { Message = "Usuario eliminado con éxito." });
+            return Created("created", created);
         }
     }
 }
