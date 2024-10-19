@@ -130,5 +130,21 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
 
             return result > 0;
         }
+
+        public async Task<bool> ValidarCodigo(int codigo)
+        {
+            var db = dbConnection();
+
+            var sql = @"SELECT * FROM Usuario WHERE codigo_temp = @Id";
+
+            var consulta = await db.QueryFirstOrDefaultAsync<UsuarioModel>(sql, new { Id = codigo });
+
+            if (consulta == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

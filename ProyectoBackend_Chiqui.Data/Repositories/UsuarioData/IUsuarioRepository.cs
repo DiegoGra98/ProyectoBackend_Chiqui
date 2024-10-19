@@ -16,6 +16,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         Task<bool> DeleteUsuario(UsuarioModel usuario);
         Task<bool> RecContraseña(UsuarioModel usuario);
         Task<bool> CambiarContraseña(UsuarioModel usuario);
+        Task<bool> ValidarCodigo(int id);
 
     }
 }

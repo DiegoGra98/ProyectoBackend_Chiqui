@@ -96,5 +96,14 @@ namespace ProyectoBackend_Chiqui.Controllers
 
             return Created("created", created);
         }
+
+        [HttpGet]
+        [Route("ValidarCodigo")]
+        public async Task<IActionResult> ValidarCodigo(int codigo)
+        {
+            var created = await _usuarioRepository.ValidarCodigo(codigo);
+
+            return Created("created", created);
+        }
     }
 }
