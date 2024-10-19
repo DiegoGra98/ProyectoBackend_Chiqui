@@ -23,12 +23,12 @@ namespace ProyectoBackend_Chiqui.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        [Route("CorreoRecuperarPass")]
-        public IActionResult ContraRecuEmail(EmailModel emailModel)
-        {
-            _emailRepository.RecContraseña(emailModel);
-            return Ok();
-        }
+        //[HttpPost]
+       // [Route("CorreoRecuperarPass")]
+       // public IActionResult ContraRecuEmail(EmailModel emailModel)
+        //{
+         //   _emailRepository.RecContraseña(emailModel);
+           // return Ok();
+       // }
     }
 }

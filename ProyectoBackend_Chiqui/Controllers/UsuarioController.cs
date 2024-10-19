@@ -70,5 +70,31 @@ namespace ProyectoBackend_Chiqui.Controllers
 
             return Created("created", created);
         }
+
+        [HttpPost]
+        [Route("CodigoRecuperacion")]
+        public async Task<IActionResult> RecContraseña([FromBody] UsuarioModel Usuario)
+        {
+            var created = await _usuarioRepository.RecContraseña(Usuario);
+
+            return Created("created", created);
+        }
+
+        [HttpPut]
+        [Route("CambiarContraseña")]
+        public async Task<IActionResult> UpdateContraseña([FromBody] UsuarioModel Usuario)
+        {
+            if (Usuario == null)
+            {
+                return BadRequest();
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var created = await _usuarioRepository.CambiarContraseña(Usuario);
+
+            return Created("created", created);
+        }
     }
 }
