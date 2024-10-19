@@ -25,7 +25,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.LoginData
         {
             var db = dbConnection();
 
-            var sql = @"SELECT * FROM Cliente WHERE Correo = @Correo AND Contraseña = @Contraseña";
+            var sql = @"SELECT * FROM Usuario WHERE Correo = @Correo AND Contraseña = @Contraseña";
 
             return await db.QueryFirstOrDefaultAsync<UsuarioModel>(sql, new { login.Correo, login.Contraseña});
         }
