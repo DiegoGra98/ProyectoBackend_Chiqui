@@ -28,7 +28,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.UsuarioData
         {
             var db = dbConnection();
 
-            var sql = @"DELETE FROM Usuario WHERE id_Cliente = @Id";
+            var sql = @"DELETE FROM Usuario WHERE id_Usuario = @Id";
 
             var result = await db.ExecuteAsync(sql, new { Id = usuario.id_Usuario});
 
