@@ -23,6 +23,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.EmailData
         public void BienvenidaEmail(EmailModel email)
         {
             // Configurar el correo electrónico
+            email.Subject = "Bienvenido (a)";
             var Email = new MimeMessage();
             Email.From.Add(MailboxAddress.Parse(_Email.User));  // Remitente
             Email.To.Add(MailboxAddress.Parse(email.To));       // Destinatario
