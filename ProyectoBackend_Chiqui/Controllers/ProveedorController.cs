@@ -5,7 +5,7 @@ using ProyectoBackend_Chiqui.Model;
 namespace ProyectoBackend_Chiqui.Controllers
 {
     [ApiController]
-    [Route("CategoriaProducto")]
+    [Route("Proveedor")]
     public class ProveedorController:ControllerBase
     {
         private readonly IProveedorRepository _proveedorRepository;

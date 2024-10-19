@@ -73,7 +73,7 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.ProveedorData
             Nombre_Contacto = @Nombre_Contacto,
             Direccion = @Direccion,
             Telefono = @Telefono,
-            Correo = @Correo,
+            Correo = @Correo
             WHERE id_Proveedor = @id_Proveedor";
 
             var result = await db.ExecuteAsync(sql, new { proveedor.Nombre_Proveedor, proveedor.Nombre_Contacto, proveedor.Direccion, proveedor.Telefono, proveedor.Correo, proveedor.id_Proveedor });

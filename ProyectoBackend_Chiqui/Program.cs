@@ -4,6 +4,7 @@ using ProyectoBackend_Chiqui.Data.Repositories.EmailData;
 using ProyectoBackend_Chiqui.Data.Repositories.LoginData;
 using ProyectoBackend_Chiqui.Data.Repositories.ProveedorData;
 using ProyectoBackend_Chiqui.Data.Repositories.RolData;
+using ProyectoBackend_Chiqui.Data.Repositories.RolPaginaData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +42,7 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IRolRepository, RolRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
+builder.Services.AddScoped<IRolPaginaRepository, RolPaginaRepository>();
 
 var app = builder.Build();
 
