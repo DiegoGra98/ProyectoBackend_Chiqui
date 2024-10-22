@@ -62,4 +62,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    // Aquí puedes registrar o imprimir el error
+    Console.WriteLine($"Error al iniciar la aplicación: {ex.Message}");
+}
