@@ -6,6 +6,7 @@ using ProyectoBackend_Chiqui.Data.Repositories.ProveedorData;
 using ProyectoBackend_Chiqui.Data.Repositories.RolData;
 using ProyectoBackend_Chiqui.Data.Repositories.RolPaginaData;
 using ProyectoBackend_Chiqui.Data.Repositories.UsuarioData;
+using ProyectoBackend_Chiqui.Repository.Repositories.CatalogoProductosData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,7 @@ builder.Services.AddScoped<IRolRepository, RolRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 builder.Services.AddScoped<IRolPaginaRepository, RolPaginaRepository>();
+builder.Services.AddScoped<ICatalogoProductosRepository, CatalogoProductosRepository>();
 
 var app = builder.Build();
 
