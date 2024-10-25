@@ -33,22 +33,31 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.CatalogoProductosData
             return result > 0;
         }
 
-        public async Task<IEnumerable<CatalogoProductosModel>> GetAllProducto()
+        public async Task<IEnumerable<CatalogoProductos2Model>> GetAllProducto()
         {
             var db = dbConnection();
 
-            var sql = @"SELECT cp.*, im.foto FROM CatalogoProductos cp JOIN ImagenesProductos im on cp.id_Producto = im.id_producto";
+            var sql = 
+                @"SELECT cp.*, e.Descripcion as Estado, ca.Descripcion as Categoria, im.foto FROM CatalogoProductos cp 
+                JOIN ImagenesProductos im on cp.id_Producto = im.id_producto 
+                JOIN Estado e ON cp.id_Estado = e.id_Estado
+                JOIN CategoriaProductos ca ON cp.id_Categoria = ca.id_Categoria";
 
-            return await db.QueryAsync<CatalogoProductosModel>(sql, new { });
+            return await db.QueryAsync<CatalogoProductos2Model>(sql, new { });
         }
 
-        public async Task<CatalogoProductosModel> GetDetails(int id)
+        public async Task<CatalogoProductos2Model> GetDetails(int id)
         {
             var db = dbConnection();
 
-            var sql = @"SELECT cp.*, im.foto FROM CatalogoProductos cp JOIN ImagenesProductos im on cp.id_Producto = im.id_producto WHERE cp.id_Producto = @Id";
+            var sql = 
+                @"SELECT cp.*, e.Descripcion as Estado, ca.Descripcion as Categoria, im.foto FROM CatalogoProductos cp 
+                JOIN ImagenesProductos im on cp.id_Producto = im.id_producto 
+                JOIN Estado e ON cp.id_Estado = e.id_Estado
+                JOIN CategoriaProductos ca ON cp.id_Categoria = ca.id_Categoria
+                WHERE cp.id_Producto = @Id";
 
-            return await db.QueryFirstOrDefaultAsync<CatalogoProductosModel>(sql, new { Id = id });
+            return await db.QueryFirstOrDefaultAsync<CatalogoProductos2Model>(sql, new { Id = id });
         }
 
         public async Task<bool> InsertProducto(CatalogoProductosModel catalogoProducto)

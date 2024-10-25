@@ -9,10 +9,10 @@ namespace ProyectoBackend_Chiqui.Data.Repositories.OrdenCompraData
 {
     public interface IOrdenCompraRepository
     {
-        Task<IEnumerable<OrdenCompraModel>> GetAllUsuario();
+        Task<IEnumerable<OrdenCompraModel>> GetAllOrden();
         Task<OrdenCompraModel> GetDetails(int id);
-        Task<bool> InsertUsuario(OrdenCompraModel OrdenCompra);
-        Task<bool> UpdateUsuario(OrdenCompraModel OrdenCompra);
-        Task<bool> DeleteUsuario(OrdenCompraModel OrdenCompra);
+        Task<bool> InsertOrden(OrdenCompraModel OrdenCompra);
+        Task<bool> UpdateOrden(OrdenCompraModel OrdenCompra);
+        Task<bool> DeleteOrden(OrdenCompraModel OrdenCompra);
     }
 }

@@ -6,7 +6,7 @@ using ProyectoBackend_Chiqui.Repository.Repositories.CatalogoProductosData;
 namespace ProyectoBackend_Chiqui.Controllers
 {
     [ApiController]
-    [Route("CatalogoaProducto")]
+    [Route("CatalogoProducto")]
     public class CatalogoProductosController : ControllerBase
     {
         private readonly ICatalogoProductosRepository _catalogoProductosRepository;
