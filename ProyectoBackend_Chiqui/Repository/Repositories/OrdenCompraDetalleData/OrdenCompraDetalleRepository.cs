@@ -22,7 +22,7 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.OrdenCompraDetalleData
         {
             var db = dbConnection();
 
-            var sql = @"DELETE FROM OrdenCompraDetalle WHERE id_Orden_deta = @Id";
+            var sql = @"CALL EliminarDetalle (@Id)";
 
             var result = await db.ExecuteAsync(sql, new { Id = ordenDetalle.id_Orden_deta });
 

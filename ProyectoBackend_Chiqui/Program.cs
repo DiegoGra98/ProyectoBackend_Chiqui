@@ -10,6 +10,7 @@ using ProyectoBackend_Chiqui.Repository.Repositories.CatalogoProductosData;
 using ProyectoBackend_Chiqui.Repository.Repositories.OrdenCompraData;
 using ProyectoBackend_Chiqui.Data.Repositories.OrdenCompraData;
 using ProyectoBackend_Chiqui.Repository.Repositories.OrdenCompraDetalleData;
+using ProyectoBackend_Chiqui.Repository.Repositories.InventarioProductoData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,7 @@ builder.Services.AddScoped<IRolPaginaRepository, RolPaginaRepository>();
 builder.Services.AddScoped<ICatalogoProductosRepository, CatalogoProductosRepository>();
 builder.Services.AddScoped<IOrdenCompraRepository, OrdenCompraRepository>();
 builder.Services.AddScoped<IOrdenCompraDetalleRepository, OrdenCompraDetalleRepository>();
+builder.Services.AddScoped<IInventarioProductoRepository, InventarioProductoRepository>();
 
 var app = builder.Build();
 
