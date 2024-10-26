@@ -55,7 +55,7 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.OrdenCompraDetalleData
 
             var sql = @"UPDATE OrdenCompraDetalle 
             SET    
-            id_Producto = @id_Producto
+            id_Producto = @id_Producto,
             Cantidad = @Cantidad,
             Precio_Unitario = @Precio_Unitario,
             Observacion = @Observacion

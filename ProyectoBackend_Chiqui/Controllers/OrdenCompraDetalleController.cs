@@ -60,7 +60,7 @@ namespace ProyectoBackend_Chiqui.Controllers
         [Route("EliminarOrdenDetalle")]
         public async Task<IActionResult> DeleteProducto(int id)
         {
-            var created = await _ordenCompraDetalleRepository.DeleteDetalle(new OrdenCompraDetalleModel { id_Orden_Enca = id });
+            var created = await _ordenCompraDetalleRepository.DeleteDetalle(new OrdenCompraDetalleModel { id_Orden_deta = id });
 
             return Created("created", created);
         }
