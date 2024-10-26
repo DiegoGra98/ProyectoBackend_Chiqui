@@ -92,13 +92,24 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.PedidoData
         {
             var db = dbConnection();
 
-            var sql = @"UPDATE InsertarPedidoEnca 
+            var sql = @"UPDATE PedidoEnca 
             SET    
             Fecha_Programada = @Fecha_Programada,
             id_Estado = @id_Estado
             WHERE id_Pedido = @id_Pedido";
 
             var result = await db.ExecuteAsync(sql, new { pedido.Fecha_Programada, pedido.id_Estado, pedido.id_Pedido });
+
+            return result > 0;
+        }
+
+        public async Task<bool> finalizarPedido(PedidoModel pedido)
+        {
+            var db = dbConnection();
+
+            var sql = @"CALL FinalizarPedido (@id_Pedido)";
+
+            var result = await db.ExecuteAsync(sql, new { pedido.id_Pedido });
 
             return result > 0;
         }

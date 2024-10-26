@@ -11,5 +11,6 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.PedidoData
         Task<int> InsertPedido(PedidoModel pedido);
         Task<bool> UpdatePedido(PedidoModel pedido);
         Task<bool> DeletePedido(PedidoModel pedido);
+        Task<bool> finalizarPedido(PedidoModel pedido);
     }
 }

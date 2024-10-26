@@ -93,5 +93,22 @@ namespace ProyectoBackend_Chiqui.Controllers
 
             return Created("created", created);
         }
+
+        [HttpPost]
+        [Route("FinalizarPedido")]
+        public async Task<IActionResult> FinalizarPedido([FromBody] PedidoModel pedido)
+        {
+            if (pedido == null)
+            {
+                return BadRequest();
+            }
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest(ModelState);
+            }
+            var created = await _pedidoRepository.finalizarPedido(pedido);
+            return Created("created", created);
+        }
     }
 }
