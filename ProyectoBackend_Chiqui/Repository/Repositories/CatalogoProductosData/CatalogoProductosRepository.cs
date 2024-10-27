@@ -64,7 +64,7 @@ namespace ProyectoBackend_Chiqui.Repository.Repositories.CatalogoProductosData
         {
             var db = dbConnection();
 
-            var sql = @"CALL InsertarProducto (@id_Categoria,@Descripcion,@id_Estado, @foto)";
+            var sql = @"CALL InsertarProducto (@id_Categoria, @Descripcion, @id_Estado, @foto)";
 
             var result = await db.ExecuteAsync(sql, new { catalogoProducto.id_Categoria, catalogoProducto.Descripcion, catalogoProducto.id_Estado, catalogoProducto.foto });
 
